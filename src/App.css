@@ -1,0 +1,32 @@
+@import url("https://fonts.googleapis.com/css2?family=ABC+Social&family=ABC+Arizona&family=GT+America&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.primaryFont {
+  font-family: "ABC Social", sans-serif;
+}
+
+.secondaryFont {
+  font-family: "ABC Arizona", serif;
+}
+
+.tertiaryFont {
+  font-family: "GT America", sans-serif;
+}
+
+.container-fluid {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+
+.container {
+  width: 85% ;
+}
