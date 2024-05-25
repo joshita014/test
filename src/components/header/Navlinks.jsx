@@ -10,8 +10,8 @@ const Navlinks = () => {
   ];
   return (
     <>
-      {links.map((link) => (
-        <div>
+      {links.map((link, i) => (
+        <div key={i}>
           <div className="px-3 text-left md:cursor-pointer">
             <h1 className="py-7 capitalize">{link.name}</h1>
           </div>
