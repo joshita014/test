@@ -1,94 +1,94 @@
-import React from "react";
-import women from "../../assets/image/women.jpg";
+import React, { useState, useEffect } from "react";
 import Button from "../button/Button";
+import women from "../../assets/women.jpg";
+import butterfly from "../../assets/watercolor-butterfly-illustration.png";
+import europeana from "../../assets/europeana-SMWPYQhVRuY-unsplash.jpg";
+import moon from "../../assets/moon.png";
+import student from "../../assets/student.png";
+import fourwomen from "../../assets/4women.png";
+import HomeTableData from "./HomeTableData";
+import Component1 from "./Component1";
+import Component2 from "./Component2";
+import Component3 from "./Component3";
+import Component4 from "./Component4";
+import Component5 from "./Component5";
+import Component6 from "./Component6";
+import Component7 from "./Component7";
+import CardSection from "./CardSection";
 
 const Home = () => {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const images = [
+    moon,
+    butterfly,
+    fourwomen,
+    europeana,
+    // Add more image URLs as needed
+  ];
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) =>
+        prevIndex === images.length - 1 ? 0 : prevIndex + 1
+      );
+    }, 4000); // Change the interval as needed (in milliseconds)
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <>
-      <section className="container-fluid h-[80vh] bg-secondaryBgColor flex items-center justify-center">
-        <div className="container mx-auto text-center md:flex md:items-center md:justify-between">
-          <div className="md:w-1/2 md:p-8">
-            <h1 className="text-8xl md:text-9xl text-primaryBgColor font-serif mb-4">
-              Heal together
-            </h1>
-            <p className="text-lg md:text-xl text-primaryBgColor font-serif mb-6">
-              Personalized intensive mental healthcare
-            </p>
-            <button className="bg-primaryBgColor hover:bg-blue-700 text-white font-bold font-serif py-3 px-5 rounded mr-4">
-              Get Started
-            </button>
-            <button className="border border-primaryBgColor bg-secondaryBgColor hover:bg-blue-700 text-primaryBgColor font-bold font-serif py-3 px-5 rounded ">
-              Another Button
-            </button>
-          </div>
-          <div className=" md:block md:w-1/4  ">
-            <img
-              src={women}
-              alt="women.jpg"
-              className="w-auto h-auto object-cover"
-            />
-          </div>
-        </div>
-      </section>
+      <Component1 />
+      <Component2 />
 
-      <section className="container-fluid h-[80vh] bg-primaryBgColor p-4">
-        <div className=" container">
+      <section className="container-fluid  bg-secondaryBgColor">
+        <div className="container ">
           <div className="flex py-12 ">
-            <div>
-              <h2 className="text-[40px] text-white secondaryFont">
-                Life-saving mental health treatment when you need it most
-              </h2>
-              <Button
-                name="Learn More About IOP"
-                clName="text-xl text-white border border-white rounded-md px-6 py-4"
+            <div class="bg-[#FDBF7C] rounded-full px-4 py-3 text-base mr-1 tertiaryFont">
+              Parents
+            </div>
+            <div class="bg-[#DAC1FB] rounded-full px-4 py-3 text-base mr-1 tertiaryFont">
+              Young Adults
+            </div>
+            <div class="bg-[#ADB0E1] rounded-full px-4 py-3 text-base tertiaryFont">
+              Teens
+            </div>
+          </div>
+          <div className=" flex-col sm:flex-row flex gap-1 items-center">
+            <HomeTableData />
+            {/* flex-[1]  */}
+            <div className="duration-1000 md:w-[75%] w-[90%] order-1 pl-0 sm:pl-48 text-rounded md:flex md:items-center md:justify-between ">
+              <img
+                src={images[currentImageIndex]}
+                alt="Image"
+                className="h-[80vh] object-cover "
               />
             </div>
-            <div className="text-[16px] text-white primaryFont">
-              <p>
-                Young people in crisis are struggling to find the mental health
-                treatment they need. At Charlie Health, we’re creating serious,
-                effective, and accessible solutions.
-              </p>
-              <br />
-              <p>
-                {" "}
-                Our treatment programs, including our virtual Intensive
-                Outpatient Program (IOP), combine personalized care with peer
-                connection to foster long-term healing..
-              </p>
-              <div className="flex  justify-center gap-5 my-7 ">
-                <div className="w-full md:w-1/2 xl:w-1/3 p-4 bg-red text-white bg-[#ADB0E1] rounded-md h-[300px]">
-                  <h3 className="text-2xl font-bold mb-2">Immediate Access</h3>
-                  <p className="text-lg">
-                    Get started with Charlie Health in as little as 24 hours
-                  </p>
-                </div>
-                <div className="w-full  md:w-1/2 xl:w-1/3 p-4 text-white bg-[#DAC1FB] rounded-md">
-                  <h3 className="text-2xl font-bold mb-2">
-                    Flexible Scheduling
-                  </h3>
-                  <p className="text-lg">
-                    Morning, afternoon, and evening options on Mon-Sat
-                  </p>
-                </div>
-                <div className="w-full md:w-1/2 xl:w-1/3 p-4 text-white bg-[#FDBF7C] rounded-md">
-                  <h3 className="text-2xl font-bold mb-2">
-                    Exceptional Outcomes
-                  </h3>
-                  <p className="text-lg">
-                    Measured care to optimize the treatment experience
-                  </p>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </section>
-      <div className="container-fluid mx-auto p-4">
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
-          {/* <!-- child elements here --> */}
+      <Component3 />
+      <Component4 />
+      <Component5 />
+      <Component6 />
+      <Component7 />
+      <section className="container-fluid bg-secondaryBgColor flex items-center">
+        <div className="w-[100%] sm:container h-full flex flex-col lg:flex-row justify-around">
+          <div className="flex flex-col lg:w-2/5 h-full tertiaryFont  p-20">
+            <p className="lg:mb-14 mb-8 text-4xl lg:text-5xl secondaryFont text-[#1E225B]">
+              From the Library
+            </p>
+            <p>
+              <Button
+                name="Explore More"
+                clName="text-lg text-primaryBgColor border border-primaryBgColor hover:bg-secondaryBgColor rounded-lg px-6 py-3"
+              />
+            </p>
+          </div>
+          <div className="lg:w-3/5">
+            <CardSection />
+          </div>
         </div>
-      </div>
+      </section>
     </>
   );
 };
